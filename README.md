@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Collaboration Guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to `integral-limit`. This project is a React + TypeScript app powered by Vite and TailwindCSS. Use this guide to get set up, contribute changes, and keep the workflow consistent.
 
-Currently, two official plugins are available:
+## Quick start
+- Prereqs: Node 20+ or Bun 1.3+, git.
+- Install deps: `bun install`.
+- Run dev server: `bun run dev` (Vite).
+- Lint: `bun run lint`.
+- Build: `bun run build`; preview: `bun run preview`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Git Basics for Beginners
+If you're new to Git, here's a quick guide to committing changes:
 
-## React Compiler
+1. **Check status**: Run `git status` to see what files you've changed, added, or deleted.
+2. **Stage changes**: Use `git add <filename>` to stage specific files, or `git add .` to stage all changes.
+3. **Commit**: Run `git commit -m "Your message here"` to save your changes with a descriptive message.
+4. **View history**: Use `git log` to see past commits.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Remember to commit often with clear messages. For this project, follow Conventional Commits (see below).
 
-## Expanding the ESLint configuration
+## Branching and commits
+- Branch from `master` using `feat/<topic>`, `fix/<issue>`, or `chore/<task>`.
+- Use Conventional Commits (e.g., `feat: add limit plot`), keep scope small, and rebase before opening a PR.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Creating and working with branches (Beginners)
+1. **Create a new branch**: `git checkout -b feat/add-new-feature` (creates and switches to a new branch).
+2. **Switch branches**: `git checkout <branch-name>` (e.g., `git checkout master` to go back).
+3. **Push your branch**: After committing, run `git push -u origin <branch-name>` to upload it to GitHub.
+4. **Merge or rebase**: Before PR, rebase on master: `git rebase master` (or merge if preferred).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Pull requests
+- Include purpose, screenshots of UI changes, and a short testing note.
+- Ensure `bun run lint` and relevant checks pass locally.
+- Keep PRs focused; prefer follow-ups over large mixed changes.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Creating a Pull Request (Beginners)
+1. **Push your branch** to GitHub (see above).
+2. **Go to the repo** on GitHub and click "Compare & pull request" (or "New pull request").
+3. **Fill in details**: Title (e.g., "feat: add limit plot"), description with what changed and why, link to issues if applicable.
+4. **Add reviewers** and labels if needed.
+5. **Submit** and wait for review. Address feedback by committing fixes to the same branch.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Code style
+- TypeScript + React 19; prefer function components and hooks.
+- TailwindCSS for styling; colocate component styles when practical.
+- Run ESLint before pushing; avoid disabling rules without context.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Testing and verification
+- Add or update tests alongside features (testing stack TBD; note coverage in PRs).
+- Manually verify user-facing flows touched by your change.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Environment and tooling
+- Use `bun add <pkg>` / `bun remove <pkg>` for dependencies.
+- Environment variables follow Vite conventions (`.env.local` for secrets, `VITE_` prefix for client exposure).
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Issue handling
+- Start with a short plan in the issue or PR description.
+- Raise blockers early; document decisions in the PR thread for future contributors.
