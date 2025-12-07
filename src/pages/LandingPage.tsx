@@ -6,7 +6,7 @@ export default function LandingPage() {
       {/* Header */}
       <header className="border-b border-gray-200 sticky top-0 bg-white z-10">
         <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-          <div className="text-2xl font-bold text-orange-600">integral</div>
+          <div className="text-2xl font-bold text-orange-600">Integral</div>
           <nav className="hidden md:flex gap-8 text-sm">
             <a href="#benefits" className="hover:text-orange-600 transition">Why us</a>
             <a href="#how-it-works" className="hover:text-orange-600 transition">How it works</a>
@@ -190,7 +190,7 @@ export default function LandingPage() {
       {/* Footer - minimal */}
       <footer className="bg-gray-900 text-gray-400 text-sm">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col lg:flex-row justify-between items-center gap-4">
-          <div className="text-white font-bold">integral</div>
+          <div className="text-white font-bold">Integral</div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition">Twitter</a>
             <a href="#" className="hover:text-white transition">Discord</a>
