@@ -7,8 +7,8 @@ export default function Features() {
       <section id="benefits" className="bg-secondary py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6">
           {/* Headings now match page foreground color (Black) */}
-          <h2 className="text-3xl lg:text-4xl font-bold mb-2 text-foreground">Why choose Integral Limit?</h2>
-          <p className="text-gray-600 mb-16">Built for people who value their time.</p>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-2 text-foreground items-center flex flex-column"  >Why choose Integral Limit?</h2>
+          <p className="text-gray-600 mb-16 items-center flex flex-column ">Built for people who value their time.</p>
 
           {/* 3-column layout with offset positioning */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
